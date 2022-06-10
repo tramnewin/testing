@@ -38,11 +38,12 @@ jobs:
     - name: Display structure of downloaded files
       run: | 
           ls
-          ls -R
       working-directory: src
       
     - name: runs program
-      run: ./main
+      run: |
+        cd src
+        cat ./main
 
     - name: clean program
       run: make clean
