@@ -38,9 +38,9 @@ jobs:
       run: |
         cd src
         ./main
-    - name: clean program
-      run: |
-        cd src
-        make clean
+    #- name: clean program
+      #run: |
+        #cd src
+        #make clean
       
    
