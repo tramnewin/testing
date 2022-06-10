@@ -35,13 +35,12 @@ jobs:
       with:
         name: artifacts
         path: src
-   #- name: runs program
-      #run: |
-        #cd src
-        #./main
-    #- name: clean program
-      #run: |
-        #cd src
-        #make clean
+    - name: runs program
+      run: |
+        cd src
+        ./main
+
+    - name: clean program
+      run: make clean
       
    
