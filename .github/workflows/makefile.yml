@@ -42,9 +42,7 @@ jobs:
       working-directory: src
       
     - name: runs program
-      run: |
-        cd src
-        ./main
+      run: ./main
 
     - name: clean program
       run: make clean
