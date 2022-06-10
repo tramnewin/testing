@@ -1,15 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Pull Request
+name: Push and Pull Request
 
 # Controls when the workflow will run
-on:
+on: [push, pull_request]
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  pull_request:
-    branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" , "feature-discord"]
+  #push:
+    #branches: ["feature-discord"]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  #workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,10 +28,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+      
+      #sending message to discord server
+      - name: send message to discord server
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          color: "#1ABC9C"
+          username: "GitHub Bot"
+          message: A new commit has been ${{ github.event_name }} with custom color
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo this is a pull request workflow
-          echo add hello_world.yml action for understandng
+        
+      
 
