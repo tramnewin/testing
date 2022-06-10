@@ -27,17 +27,18 @@ jobs:
   test:
     
     runs-on: ubuntu-latest
-    needs: building
+    #needs: building
     steps:
     - uses: actions/checkout@v3
+    
     - uses: actions/download-artifact@v3
       with:
         name: artifacts
         path: src
-    - name: runs program
-      run: |
-        cd src
-        ./main
+   #- name: runs program
+      #run: |
+        #cd src
+        #./main
     #- name: clean program
       #run: |
         #cd src
