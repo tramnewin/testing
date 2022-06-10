@@ -35,6 +35,12 @@ jobs:
       with:
         name: artifacts
         path: src
+    - name: Display structure of downloaded files
+      run: | 
+          ls
+          ls -R
+      working-directory: src
+      
     - name: runs program
       run: |
         cd src
