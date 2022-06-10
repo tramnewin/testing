@@ -43,9 +43,12 @@ jobs:
     - name: runs program
       run: |
         cd src
-        cat ./main
+        chmod +x ./main
+        ./main
 
     - name: clean program
-      run: make clean
+      run: |
+        cd src
+        make clean
       
    
