@@ -46,7 +46,9 @@ jobs:
         uses: ./.github/actions/auto_release
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
-        
+      - name: print URL
+        if: steps.create-release.outputs.release-url != ''
+        run: echo ${{steps.create-release.outputs.release-url}} 
 
 
         
