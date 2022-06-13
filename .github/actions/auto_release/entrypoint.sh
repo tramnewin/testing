@@ -14,5 +14,10 @@ fi
 milestone_name = $(jq --raw-output .milestone.title $GITHUB_EVENT_PATH)
 IFS= '/' read owner repository <<< "$GITHUB_REPOSITORY"
 release_url= $(dotnet gitreleasemanager create \ --milestone $milestone_name \ --targercommitish $GITHUB_SHA \ --token $repo_token --owner $owner \ --repositoroy $repository)
+
+if [$? -ne 0]; then
+    echo "::error::Failed to create release"
+    exit 1
+fi
 echo "::set-output name=release-url::$release_url"
 exit 0
