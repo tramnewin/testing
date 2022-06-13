@@ -4,6 +4,9 @@ name: Create release
 
 # Controls when the workflow will run
 on:
+  push:
+    branches:
+      - main
   milestone:
     types: [closed]
 
