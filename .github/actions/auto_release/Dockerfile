@@ -5,7 +5,7 @@ LABEL "com.github.actions.descriptions" = "A GitHub release based on a newly clo
 LABEL version="0.1.0"
 LABEL repository="https://github.com/tramnewin/testing"
 
-RUN apt-get update && apt-get-install -y jq
+RUN sudo apt-get update && sudo apt-get-install -y jq
 RUN dotnet tool install -g GitReleaseManager.tool
 
 ENV PATH /root/dotnet/tools:$PATH
