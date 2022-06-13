@@ -22,7 +22,7 @@ milestone_name=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH)
 # called $owner and $repository
 IFS='/' read owner repository <<< "$GITHUB_REPOSITORY"
 
-release_url=$(dotnet-gitreleasemanager create \
+release_url=$(dotnet gitreleasemanager create \
 --milestone $milestone_name \
 --name $milestone_name \
 --targetcommitish $GITHUB_SHA \
