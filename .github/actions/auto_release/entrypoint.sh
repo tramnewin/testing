@@ -1,6 +1,6 @@
 #!/bin/bash
 set -u
-repo-token = $1
+repo_token = $1
 if ["$GITHUB_EVENT_NAME" != "milestone"]; then
     echo "::debug::The event name was '$GITHUB_EVENT_NAME'"
     exit 0
