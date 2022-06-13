@@ -34,15 +34,6 @@ jobs:
           color: "#1ABC9C"
           username: "GitHub Bot"
           message: A new commit has been ${{ github.event_name }} with custom color
-      - name: create release
-        id: create-release
-        uses: ./.github/actions/auto_release
-        with:
-          repo-token: ${{secrets.GITHUB_TOKEN}}
-      - name: print URL
-        if: steps.create-release.outputs.release-url != ''
-        run: echo ${{steps.create-release.outputs.release-url}} 
-
 
         
       
