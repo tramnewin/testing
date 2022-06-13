@@ -6,5 +6,5 @@ This repo is to learn about GitHub actions.
  - [x] how to trigger jobs sequentially
  - [x] understand and know how to use artifacts
  - [x] separate bewteen workflow and action
- - [ ] trigger created action on workflow
+ - [x] trigger created action on workflow
  - [ ] Comfortable with GitHub actions 
