@@ -29,7 +29,7 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#1ABC9C"
           username: "GitHub Bot"
-          message: ${{github.ref_name}} has been ${{ github.event_name }} with custom color
+          message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repo
 
         
       
