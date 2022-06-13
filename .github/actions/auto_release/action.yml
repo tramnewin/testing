@@ -1,0 +1,9 @@
+name: 'Auto Release Milestone' 
+description: 'A GitHub release based on a newly closed milestone'  
+outputs:
+  release-url:
+    description: 'The URL of the GitHub release'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  

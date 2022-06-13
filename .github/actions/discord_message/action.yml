@@ -1,0 +1,17 @@
+name: 'custom action for Discord' 
+description: 'this self-customized action is to sends out message to Disord with specfic message based on the event and the affected branch'
+author: Tram Nguyen
+inputs:
+  event-name: 
+    description: 'the event type'
+    required: true
+  branch-name: 
+    description: 'the affected branch'
+    required: true
+  
+#outputs:
+  #output_value:
+    #description:
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
