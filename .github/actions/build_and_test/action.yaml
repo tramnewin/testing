@@ -1,0 +1,30 @@
+name: 'Auto Build and Test' 
+description: 'Build and test codes on each workflow'  
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: testing 
+      shell: bash 
+      run: echo repo token is ${{inputs.repo-token}}
+    - name: bob the builder
+      shell: bash
+      run: |
+          cd src
+          echo make testing
+          make testing
+          echo run build
+          chmod +x ./main
+          ./main
+          python3 count.py
+    - name: clean program
+      shell: bash
+      run: |
+        cd src
+        echo clean
+        make clean
+
