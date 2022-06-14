@@ -18,7 +18,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    
+      - name: checkout code
+        uses: actions/checkout@v3
       #sending message to discord server
       - name: send message to discord server
         uses: ./.github/actions/discord_message
@@ -34,7 +35,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
       - name: build and test the code
-        uses: ./.github/actions/build-and-test
+        uses: ./.github/actions/build_and_test
         with: 
           repo-token: ${{secrets.GITHUB_TOKEN}}
 
