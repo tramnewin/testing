@@ -23,12 +23,12 @@ jobs:
         uses: actions/checkout@v3
       #sending message to discord server
       - name: send message to discord server
-        uses: appleboy/discord-action@master
+        uses: ./.github/actions/discord_message
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#1ABC9C"
-          username: "GitHub Bot"
+          username: "GitHub Action"
           message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repo
 
         
