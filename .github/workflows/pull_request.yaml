@@ -1,10 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Push of a branch
+name: pull request of a branch
 
 # Controls when the workflow will run
 on: 
-  push:
+  pull_request:
   # Allows you to run this workflow manually from the Actions tab
   #workflow_dispatch:
 
@@ -29,6 +29,15 @@ jobs:
           color: "#1ABC9C"
           username: "GitHub Action"
           message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repository
+  buildandtest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: build and test the code
+        uses: ./.github/actions/build_and_test
+        with: 
+          repo-token: ${{secrets.GITHUB_TOKEN}}
 
         
       
