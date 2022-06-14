@@ -1,17 +1,27 @@
 name: 'custom action for Discord' 
 description: 'this self-customized action is to sends out message to Disord with specfic message based on the event and the affected branch'
-author: Tram Nguyen
 inputs:
   event-name: 
     description: 'the event type'
-    required: true
+    required: false
   branch-name: 
     description: 'the affected branch'
+    required: false
+  webhook_id:
+    description: 'Discord server id'
     required: true
-  
-#outputs:
-  #output_value:
-    #description:
+  webhook_token: 
+    description: 'Discord server token'
+    required: true
+  color:
+    description: 'the color tag for when sending the message'
+    required: false
+  username:
+    description: 'the name of the bot'
+    required: false
+  message:
+    description: 'modifiable message sent to the server'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
