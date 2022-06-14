@@ -12,7 +12,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  notifying:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -29,7 +29,7 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#1ABC9C"
           username: "GitHub Action"
-          message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repo
+          message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repository
 
         
       
