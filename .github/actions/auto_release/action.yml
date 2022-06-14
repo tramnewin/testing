@@ -1,12 +1,12 @@
 name: 'Auto Release Milestone' 
-description: 'A GitHub release based on a newly closed milestone'  
+description: 'A GitHub release draft based on a newly closed milestone'  
 inputs:
   repo-token:
     description: 'The GITHUB_TOKEN'
     required: true
 outputs:
   release-url:
-    description: 'The URL of the GitHub release'
+    description: 'The URL of the GitHub release draft'
 runs:
   using: 'docker'
   image: 'Dockerfile'
