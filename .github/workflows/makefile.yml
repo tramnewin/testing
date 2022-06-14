@@ -45,6 +45,7 @@ jobs:
         cd src
         chmod +x ./main
         ./main
+        python3 count.py
 
     - name: clean program
       run: |
