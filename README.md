@@ -7,4 +7,4 @@ This repo is to learn about GitHub actions.
  - [x] understand and know how to use artifacts
  - [x] separate bewteen workflow and action
  - [x] trigger created action on workflow
- - [ ] Comfortable with GitHub actions 
+ - [x] Comfortable with GitHub actions 
