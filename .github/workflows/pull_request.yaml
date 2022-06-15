@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  notifying:
+  pr_notifying:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -38,6 +38,18 @@ jobs:
         uses: ./.github/actions/build_and_test
         with: 
           repo-token: ${{secrets.GITHUB_TOKEN}}
+  giphy-generator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GIPHY generator
+        id: giphy_generator
+        uses: iamhughes/giphy-generator@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }} # This token should be created on giphy.com
+        with:
+          rating: 'g'
+          lang: 'en'
 
         
       
