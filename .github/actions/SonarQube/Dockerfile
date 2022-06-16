@@ -6,7 +6,7 @@ LABEL version="V2.0" \
       com.github.actions.description="Scan your code with SonarQube to detect Bugs, Vulnerabilities and Code Smells in up to 27 programming languages!"
 
 
-RUN -d --name sonarqube -e
+RUN -docker run -d --name sonarqube -e 
 RUN SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

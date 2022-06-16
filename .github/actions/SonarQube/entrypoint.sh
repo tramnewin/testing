@@ -1,40 +1,21 @@
 #!/bin/bash
 set -u
 
-repo_token=$1
-
-if [ "$GITHUB_EVENT_NAME" != "milestone" ]; then
-  echo "::debug::The event name was '$GITHUB_EVENT_NAME'"
-  exit 0
+if [[ -z "${SONAR_TOKEN}" ]]; then
+  echo "============================ WARNING ============================"
+  echo "Running this GitHub Action without SONAR_TOKEN is not recommended"
+  echo "============================ WARNING ============================"
 fi
 
-event_type=$(jq --raw-output .action $GITHUB_EVENT_PATH)
-
-if [ $event_type != "closed" ]; then
-  echo "::debug::The event type was '$event_type'"
-  exit 0
-fi
-
-milestone_name=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH)
-
-# Splits the string in $GITHUB_REPOSITORY which takes
-# the form "owner/repository" into two variables
-# called $owner and $repository
-IFS='/' read owner repository <<< "$GITHUB_REPOSITORY"
-
-release_url=$(dotnet gitreleasemanager create \
---milestone $milestone_name \
---name $milestone_name \
---targetcommitish $GITHUB_SHA \
---token $repo_token \
---owner $owner \
---repository $repository)
-
-if [ $? -ne 0 ]; then
-  echo "::error::Failed to create the release draft"
+if [[ -z "${SONAR_HOST_URL}" ]]; then
+  echo "This GitHub Action requires the SONAR_HOST_URL env variable."
   exit 1
 fi
+unset JAVA_HOME
 
-echo "::set-output name=release-url::$release_url"
+sonar-scanner -Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} ${INPUT_ARGS}
 
-exit 0
+_tmp_file=$(ls "${INPUT_PROJECTBASEDIR}/" | head -1)
+PERM=$(stat -c "%u:%g" "${INPUT_PROJECTBASEDIR}/$_tmp_file")
+
+chown -R $PERM "${INPUT_PROJECTBASEDIR}/"
