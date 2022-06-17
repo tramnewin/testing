@@ -18,3 +18,4 @@ phrase = "abcdefghij"
 print(phrase[2:9:2])
 x =0
 print(a_function(x))
+print("434rfd")
