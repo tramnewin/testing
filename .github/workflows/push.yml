@@ -29,7 +29,6 @@ jobs:
           color: "#1ABC9C"
           username: "GitHub Action"
           message: ${{github.head_ref}} has ${{github.event_name}}ed onto the repository
-
         
       
 

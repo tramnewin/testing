@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 int main (){
     std::cout<< "hello world\n";
@@ -9,7 +10,7 @@ int main (){
             std::cout<<i<<" is not an even number\n";
         }
     }
-    int *p;
+    std::vector<int> apple;
     return 0; 
 
 }
