@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 int main (){
     std::cout<< "hello world\n";
     for(int i =0; i< 10; i++){
@@ -10,7 +11,7 @@ int main (){
         }
     }
     int *p;
-    vector<int> apple;
+    std::vector<int> apple;
     return 0; 
 
 }
