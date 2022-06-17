@@ -3,10 +3,15 @@
 name:   5 minutes running
 
 # Controls when the workflow will run
-on:
 
+on:
+  pull_request:
+    branches:
+      - huhu
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 0 * * 0" #12am every Sunday
+
+  workflow_dispatch:  #can be used when is merged with master
 
 #    pull_request:
 #      branches:
