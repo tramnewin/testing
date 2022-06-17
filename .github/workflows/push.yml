@@ -28,7 +28,7 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#1ABC9C"
           username: "GitHub Action"
-          message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repository
+          message: ${{github.head_ref}} has ${{github.event_name}}ed onto the repository
 
         
       

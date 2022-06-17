@@ -29,7 +29,7 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#1ABC9C"
           username: "GitHub Action"
-          message: ${{github.ref_name}} has ${{ github.event_name }}ed onto the repository
+          message: ${{github.head_ref}} has ${{github.event_name}}ed onto the repository
   buildandtest:
     runs-on: ubuntu-latest
     steps:
@@ -39,12 +39,14 @@ jobs:
         uses: ./.github/actions/build_and_test
         with: 
           repo-token: ${{secrets.GITHUB_TOKEN}}
+
   giphy-generator:
     runs-on: ubuntu-latest
     steps:
       - name: GIPHY generator
         id: giphy_generator
         uses: iamhughes/giphy-generator@v1
+        if: ${{}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
           GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }} # This token should be created on giphy.com
