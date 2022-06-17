@@ -10,9 +10,8 @@ int main (){
             std::cout<<i<<" is not an even number\n";
         }
     }
-    int *p;
     std::vector<int> apple;
-    
+
     return 0; 
 
 }
