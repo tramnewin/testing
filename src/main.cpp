@@ -11,7 +11,6 @@ int main (){
         }
     }
     std::vector<int> apple;
-
     return 0; 
 
 }

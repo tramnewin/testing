@@ -5,11 +5,8 @@ name: Config notification and build/test
 # Controls when the workflow will run
 on: 
   pull_request:
-<<<<<<< HEAD
-=======
     branches:
       - confirmation
->>>>>>> confirmation
   issue_comment:  
   # Allows you to run this workflow manually from the Actions tab
   #workflow_dispatch:
@@ -35,11 +32,6 @@ jobs:
           color: "#1ABC9C"
           username: "GitHub Action"
           message: ${{github.head_ref}} has ${{ github.event_name }}ed onto the repository
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> confirmation
   giphy-generator:
     runs-on: ubuntu-latest
     steps:
