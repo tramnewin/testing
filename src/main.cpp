@@ -12,6 +12,7 @@ int main (){
     }
     int *p;
     std::vector<int> apple;
+    
     return 0; 
 
 }
