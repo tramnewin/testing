@@ -28,8 +28,7 @@ jobs:
       - name: set environment
         shell: bash
         run: |
-          device = $(echo ${{matrix.device }} | tr '[:upper:]' '[:lower:]')
-          echo "${{matrix.device}}_version = $device-(date + "%y-%m-%d")" >> $GITHUB_ENV
+          echo "${{matrix.device}}_version = ${{matrix.device}}-(date + "%y-%m-%d")" >> $GITHUB_ENV
 
   buildandtest:
     runs-on: ubuntu-latest
