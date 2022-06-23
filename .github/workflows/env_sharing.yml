@@ -28,7 +28,7 @@ jobs:
       - name: set environment
         shell: bash
         run: |
-          echo "${{matrix.device}}_version = ${{matrix.device}}-(date + "%y-%m-%d")" >> $GITHUB_ENV
+          echo "${{matrix.device}}_version = ${{matrix.device}}-$(date + "%y-%m-%d")" >> $GITHUB_ENV
       
 
   buildandtest:
