@@ -37,6 +37,6 @@ jobs:
       - name: Confirm version
         shell: bash
         run: |
-          echo $Orion_version
+          echo $env.Orion_version
 
   
