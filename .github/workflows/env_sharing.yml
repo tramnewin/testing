@@ -32,6 +32,7 @@ jobs:
       
 
   buildandtest:
+    needs: [set_env]
     runs-on: ubuntu-latest
     steps:
       - name: Confirm version
