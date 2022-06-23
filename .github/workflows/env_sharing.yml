@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           echo "${{matrix.device}}_version = ${{matrix.device}}-(date + "%y-%m-%d")" >> $GITHUB_ENV
-          echo ${{matrix.device}}   ${{env.{{matrix.device}}_version}}
+      
 
   buildandtest:
     runs-on: ubuntu-latest
@@ -37,6 +37,6 @@ jobs:
       - name: Confirm version
         shell: bash
         run: |
-          echo Orion ${{env.Orion_version}}
+          echo $Orion_version
 
   
