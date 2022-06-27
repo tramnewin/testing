@@ -31,6 +31,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Locate path
+      shell: bash
+      run: |
+        pwd
+        ls
+        
     - uses: actions/download-artifact@v3
       with:
         name: artifacts
