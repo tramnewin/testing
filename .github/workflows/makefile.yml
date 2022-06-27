@@ -1,23 +1,20 @@
 name: Makefile CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+  schedule:
+    - cron: "15 14 * * *"
 jobs:
   building:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v3
     
     - name: build file via local make file
       run: |
-          cd src
-          make testing
+        cd src
+        make testing
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -31,10 +28,19 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Locate path
+      shell: bash
+      run: |
+        pwd
+        ls
+        cd src
+        ls
+
+
     - uses: actions/download-artifact@v3
       with:
         name: artifacts
-        path: src
+        path: src/build
     - name: Display structure of downloaded files
       run: | 
           ls
