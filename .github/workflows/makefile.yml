@@ -18,6 +18,9 @@ jobs:
       run: |
           cd src
           make testing
+          release_date=$(date +'%Y-%m-%d-%H-%M')
+          echo "::set-output name=release_date::$release_date"
+          echo $release_date
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -38,12 +41,12 @@ jobs:
         ls
         cd src
         ls
-        
+
 
     - uses: actions/download-artifact@v3
       with:
         name: artifacts
-        path: src
+        path: src/build
     - name: Display structure of downloaded files
       run: | 
           ls
