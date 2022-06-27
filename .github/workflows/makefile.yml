@@ -17,11 +17,8 @@ jobs:
     
     - name: build file via local make file
       run: |
-          cd src
-          make testing
-          release_date=$(date +'%Y-%m-%d-%H-%M')
-          echo "::set-output name=release_date::$release_date"
-          echo $release_date
+        cd src
+        make testing
     - name: upload artifacts
       uses: actions/upload-artifact@v3
       with:
