@@ -53,7 +53,7 @@ jobs:
         uses: ./.github/actions/build_and_test
         with: 
           repo-token: ${{secrets.GITHUB_TOKEN}}
-
+          device_directory: workflows
         
       
 
