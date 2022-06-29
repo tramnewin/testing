@@ -69,8 +69,10 @@ jobs:
         run: |
           build_type="private"
 
-          version=${{ steps.release_values.outputs.version }}
+          version=$(echo ${{ steps.release_values.outputs.version }})
           build_name=${{ steps.release_values.outputs.build_name }}
           echo version
           echo $version
+          echo build_name
+          echo $build_name
 
