@@ -7,6 +7,9 @@ on:
   pull_request:
     branches:
       - sonar
+  push:
+    branches:
+      - sonar
   schedule:
     - cron: "30 14 * * *"
 
