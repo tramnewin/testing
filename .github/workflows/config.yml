@@ -67,10 +67,10 @@ jobs:
       - name: Upload Artifacts
         shell: bash
         run: |
-          readonly build_type="private"
+          build_type="private"
 
-          readonly version=${{ steps.release_values.outputs.version }}
-          readonly build_name=${{ steps.release_values.outputs.build_name }}
+          version=${{ steps.release_values.outputs.version }}
+          build_name=${{ steps.release_values.outputs.build_name }}
           echo version
           echo $version
 
