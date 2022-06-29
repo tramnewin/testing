@@ -8,6 +8,9 @@ on:
     branches:
       - sonar
   push:
+    branches:
+      - sonar
+      - qube
   schedule:
     - cron: "30 14 * * *"
 
