@@ -54,6 +54,24 @@ jobs:
         with: 
           repo-token: ${{secrets.GITHUB_TOKEN}}
           device_directory: workflows
+
+      - name: Set Release EVs
+        id: release_values
+        shell: bash
+        run: |
+          device=$(echo helloworld)
+          build_type="private"
+          echo "::set-output name=build_name::$device-$build_type"
+          echo "::set-output name=device::$device"
+          echo "::set-output name=build_type::$build_type"
         
-      
+      - name: Upload Artifacts
+        shell: bash
+        run: |
+          readonly build_type="private"
+
+          readonly version=${{ steps.release_values.outputs.version }}
+          readonly build_name=${{ steps.release_values.outputs.build_name }}
+          echo version
+          echo $version
 
