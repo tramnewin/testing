@@ -4,6 +4,10 @@ inputs:
   repo-token:
     description: 'The GITHUB_TOKEN'
     required: true
+  device_directory:
+    description: 'The directory to run program'
+    required: false
+    default: src
 
 runs:
   using: 'composite'
@@ -14,17 +18,17 @@ runs:
     - name: bob the builder
       shell: bash
       run: |
-          cd src
-          echo make testing
-          make testing
-          echo run build
-          chmod +x ./main
-          ./main
-          python3 count.py
+        cd ${{inputs.repo-token}}
+        echo make testing
+        make testing
+        echo run build
+        chmod +x ./main
+        ./main
+        python3 count.py
     - name: clean program
       shell: bash
       run: |
-        cd src
+        cd ${{inputs.repo-token}}
         echo clean
         make clean
 
