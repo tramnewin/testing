@@ -3,12 +3,10 @@
 name: Config notification and build/test
 
 # Controls when the workflow will run
-on:
-#  pull_request:
+on: [push,pull_request]
 #    branches:
 #      - confirmation 
-  schedule:
-    - cron: "0 0 * * 0"
+  
   # Allows you to run this workflow manually from the Actions tab
 
 
