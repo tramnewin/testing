@@ -18,7 +18,7 @@ runs:
     - name: bob the builder
       shell: bash
       run: |
-        cd ${{inputs.repo-token}}
+        cd ${{inputs.device_directory}}
         echo make testing
         make testing
         echo run build
@@ -28,7 +28,7 @@ runs:
     - name: clean program
       shell: bash
       run: |
-        cd ${{inputs.repo-token}}
+        cd ${{inputs.device_directory}}
         echo clean
         make clean
 
