@@ -68,9 +68,7 @@ jobs:
         shell: bash
         run: |
           build_type="private"
-
-          version=$(echo ${{ steps.release_values.outputs.version }})
-          build_name=${{ steps.release_values.outputs.build_name }}
+          build_name=${{ steps.release_values.outputs.build_name }}-private
           echo version
           echo $version
           echo build_name
