@@ -1,4 +1,4 @@
-testing:
+unitTest:
 	-@echo "--making main.cpp"
 	gcc -fprofile-arcs -ftest-coverage ./main.cpp -o main -lstdc++
 	ls
